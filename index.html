@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaips - Smart Power Solution</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .ips-card {
+            background-color: #1e1e1e;
+            border-radius: 20px;
+            padding: 25px;
+            max-width: 400px;
+            border: 1px solid #333;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+        }
+        .product-img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #ff8c00;
+        }
+        h2 { color: #ff8c00; margin-bottom: 5px; text-align: center; }
+        .tagline { color: #ddd; text-align: center; font-weight: bold; margin-bottom: 20px; }
+        
+        .description-text {
+            font-size: 14px;
+            white-space: pre-line;
+            margin-bottom: 20px;
+        }
+        
+        .pricing { 
+            background: #2d2d2d;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .regular-price { text-decoration: line-through; color: #888; font-size: 18px; }
+        .offer-price { color: #ff8c00; font-size: 28px; font-weight: bold; margin-left: 10px; }
+        
+        /* Order Button Styles */
+        .order-btn {
+            background-color: #ff8c00;
+            color: black;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .order-btn:hover { background-color: #e67e00; transform: translateY(-3px); }
+
+        /* Modal Background */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            background-color: rgba(0,0,0,0.9);
+            overflow-y: auto;
+        }
+
+        /* Modal Box */
+        .modal-content {
+            background-color: #1e1e1e;
+            margin: 5% auto;
+            padding: 25px;
+            border: 1px solid #ff8c00;
+            width: 90%;
+            max-width: 420px;
+            border-radius: 15px;
+            color: white;
+            position: relative;
+        }
+
+        .close-btn { 
+            position: absolute; right: 20px; top: 15px;
+            color: #aaa; font-size: 28px; cursor: pointer; 
+        }
+
+        .product-summary {
+            background: #2d2d2d;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .form-group { margin: 15px 0; }
+        label { display: block; margin-bottom: 5px; font-size: 14px; color: #ff8c00; }
+
+        select, input, textarea {
+            width: 100%; padding: 12px; margin-top: 5px;
+            border-radius: 8px; border: 1px solid #444;
+            background: #121212; color: white;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .billing-details {
+            border-top: 1px solid #444;
+            margin-top: 15px;
+            padding-top: 10px;
+        }
+        .total-bill { font-size: 22px; color: #ff8c00; font-weight: bold; }
+
+        .confirm-btn {
+            background: #25d366; color: white; width: 100%;
+            padding: 15px; border: none; border-radius: 10px;
+            font-weight: bold; cursor: pointer; margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ips-card">
+        <img src="ips.png" alt="Vaips 200W Smart IPS" class="product-img">
+        
+        <h2>⚡ Vaips 200W Smart IPS ⚡</h2>
+        <p class="tagline">ছোট কিন্তু পাওয়ারফুল ব্যাকআপ সলিউশন 🔋</p>
+        
+        <div class="description-text">
+✅ 200W Pure Output Capacity
+✅ Lithium Battery Supported
+✅ Fast Auto Changeover System
+✅ Mobile / Laptop / Router / Fan / Light চালাতে সক্ষম
+✅ Low Noise & Low Heat Design
+✅ Digital Voltage Display
+✅ Premium Metal Body Finish
+✅ Compact & Stylish Design
+
+🏠 বাসা, অফিস, দোকান কিংবা WiFi backup এর জন্য পারফেক্ট।
+লোডশেডিং হলেও এখন আর কাজ বন্ধ না!
+
+🔌 সাপোর্টেড ডিভাইসঃ
+• WiFi Router
+• LED Light
+• Laptop Charger
+• Mobile Charger
+• Small Fan
+• CCTV
+
+💎 কেন Vaips IPS?
+✔️ Premium Quality Components
+✔️ Smart Protection System
+✔️ Overcharge & Short Circuit Protection
+✔️ Long Backup Support
+✔️ Stylish Modern Look
+📦 Condition: Brand New
+🚚 Home Delivery Available
+        </div>
+
+        <div class="pricing">
+            <span class="regular-price">৳ ৬৬০০</span>
+            <span class="offer-price">৳ ৬১৯৯</span>
+            <p style="font-size: 13px; margin-top: 8px; color: #aaa;">(Without Battery)</p>
+        </div>
+
+        <button onclick="openModal()" class="order-btn">Order Now 🛒</button>
+        
+        <p style="text-align: center; font-size: 12px; margin-top: 15px; color: #666;">Vaips — Smart Power Solution ⚡</p>
+    </div>
+
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 style="text-align: left;">অর্ডার কনফার্ম করুন 🛒</h2>
+            
+            <div class="product-summary">
+                <p><strong>পণ্য:</strong> Vaips 200W Smart IPS</p>
+                <p><strong>মূল্য:</strong> ৳ <span id="basePrice">6199</span></p>
+            </div>
+
+            <div class="form-group">
+                <label>ডেলিভারি এলাকা নির্বাচন করুন:</label>
+                <select id="location" onchange="calculateTotal()">
+                    <option value="80">Inside Dhaka (৳ ৮০)</option>
+                    <option value="150">Outside Dhaka (৳ ১৫০)</option>
+                </select>
+            </div>
+
+            <input type="text" id="buyerName" placeholder="আপনার নাম" required>
+            <input type="text" id="buyerPhone" placeholder="মোবাইল নাম্বার" required>
+            <textarea id="buyerAddress" rows="3" placeholder="পূর্ণ ঠিকানা (বাসা নং, রোড নং, এলাকা)" required></textarea>
+
+            <div class="billing-details">
+                <p>ডেলিভারি চার্জ: ৳ <span id="delCharge">80</span></p>
+                <p class="total-bill">সর্বমোট বিল: ৳ <span id="totalPrice">6279</span></p>
+            </div>
+
+            <button onclick="sendToWhatsApp()" class="confirm-btn">Order Now ✅</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("orderModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("orderModal").style.display = "none";
+        }
+
+        // ক্লোজ বাটনের বাইরে ক্লিক করলে যেন বন্ধ হয়
+        window.onclick = function(event) {
+            let modal = document.getElementById("orderModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function calculateTotal() {
+            let basePrice = 6199;
+            let delivery = parseInt(document.getElementById("location").value);
+            document.getElementById("delCharge").innerText = delivery;
+            document.getElementById("totalPrice").innerText = basePrice + delivery;
+        }
+
+        function sendToWhatsApp() {
+            let name = document.getElementById("buyerName").value;
+            let phone = document.getElementById("buyerPhone").value;
+            let address = document.getElementById("buyerAddress").value;
+            let area = document.getElementById("location").options[document.getElementById("location").selectedIndex].text;
+            let total = document.getElementById("totalPrice").innerText;
+
+            if(name && phone && address) {
+                let message = `*Vaips - New Order* ⚡%0A------------------------%0A*পণ্য:* Vaips 200W IPS%0A*ক্রেতার নাম:* ${name}%0A*ফোন:* ${phone}%0A*ঠিকানা:* ${address}%0A*এলাকা:* ${area}%0A------------------------%0A*সর্বমোট বিল:* ৳${total}`;
+                window.open(`https://wa.me/8801402568858?text=${message}`, '_blank');
+            } else {
+                alert("দয়া করে সব তথ্য পূরণ করুন!");
+            }
+        }
+    </script>
+
+</body>
+</html>
